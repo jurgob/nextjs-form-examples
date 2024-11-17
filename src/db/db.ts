@@ -7,13 +7,15 @@ import { drizzle } from "drizzle-orm/node-postgres";
 import pkg from 'pg';
 const {Pool} = pkg;
 import { migrate  as pgNodMigrate} from "drizzle-orm/node-postgres/migrator"
-
+const migrationsFolder = path.resolve("./src/drizzle")
 const MIGRATE_CONFIG =  {
-    migrationsFolder: "src/drizzle"
+    migrationsFolder
 }
+console.log(`MIGRATE_CONFIG migrationsFolder`, migrationsFolder);
 
 // connectionString
 import {env} from "../env";
+import path from 'path';
 
 export function createDb() {
     console.log(`createDb --env.DATABASE_URL `, env.DATABASE_URL);
