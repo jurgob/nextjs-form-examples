@@ -5,7 +5,7 @@ import {Heading, Heading2} from "@/components/ui/heading"
 import { revalidatePath } from 'next/cache'
 
 // import {UserList} from "@/components/userslist"
-import { db} from '../db';  
+import { dataService } from '@/dataService';  
 import { UserList } from "@/components/userslist";
 
 async function addUser (formData: FormData) {
@@ -14,12 +14,12 @@ async function addUser (formData: FormData) {
     if (!userName) {
         return;
     }
-    await db.addUser({name: userName});
+    await dataService.addUser({name: userName});
     revalidatePath('/server_side_only');
 };
 
 export default  async function ServerSideOnly() {
-    const users = await db.getUsers();
+    const users = await dataService.getUsers({});
     return (
         <div className=" p-2 " >
             <Heading>Simple Form </Heading>

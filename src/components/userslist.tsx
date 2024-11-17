@@ -1,4 +1,4 @@
-import { User } from "@/app/db"
+import { User } from "@/dataService"
 
 export const UserList = ({users}: {users: User[]}) => {
     return (

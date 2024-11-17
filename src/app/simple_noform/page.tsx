@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import {User} from '../db';
+import {User} from '@/dataService';
 import { createUser,getUsers } from './actions';
 import {Button} from "../../components/button"
 import { UserList } from '@/components/userslist';
