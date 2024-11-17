@@ -9,7 +9,7 @@ const {Pool} = pkg;
 import { migrate  as pgNodMigrate} from "drizzle-orm/node-postgres/migrator"
 
 const MIGRATE_CONFIG =  {
-    migrationsFolder: "drizzle"
+    migrationsFolder: "src/drizzle"
 }
 
 // connectionString
