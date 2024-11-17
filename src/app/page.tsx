@@ -46,8 +46,8 @@ export default function Home() {
       <main className="flex flex-col items-center gap-4 p-4">
         <p>A list of example of how to use forms in <VercelLogo />.</p>
         <div className="flex flex-row gap-4 items-center">
-            {EXAMPLES.map(({ title, description, href, code_href }) => (
-            <ExampleCard title={title} description={description} href={href} code_href={code_href} />
+            {EXAMPLES.map(({ title, description, href, code_href }, id) => (
+            <ExampleCard key={id} title={title} description={description} href={href} code_href={code_href} />
             ))}
         </div>
       </main>
