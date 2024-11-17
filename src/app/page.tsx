@@ -26,9 +26,9 @@ const ExampleCard = ({title, description, href, code_href}: {title: string, desc
         </div>
       </a>
       <div >
-        <a  className="p-2 text-xs hover:bg-[#f2f2f2] inline-block" href={href} ><ArrowRight height={12} width={12} className="inline-block"/>View Example</a> 
+        <a  className="p-2 text-xs hover:bg-[#f2f2f2] inline-block" href={href} ><ArrowRight height={13} width={13} className="inline-block"/>View Example</a> 
         <span className="inline-block"> | </span>
-        <a  className="p-2 text-xs hover:bg-[#f2f2f2] inline-block" href={code_href} target="_blank"> <Github height={12} width={12} className="inline-block" /> View Code</a> </div>
+        <a  className="p-2 text-xs hover:bg-[#f2f2f2] inline-block" href={code_href} target="_blank"> <Github height={13} width={13} className="inline-block" /> View Code</a> </div>
     </div>
 )
 
