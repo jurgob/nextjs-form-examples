@@ -2,7 +2,12 @@
 import { useEffect, useState } from 'react';
 import {User} from '../db';
 import { createUser,getUsers } from './actions';
-import {Button} from "../components/button"
+import {Button} from "../../components/button"
+import { UserList } from '@/components/userslist';
+
+
+
+
 export default function Home() {
     const [users, setUsers] = useState<User[]>([]);
     useEffect(() => {
@@ -22,12 +27,7 @@ export default function Home() {
                     }} 
                     type='submit' 
                 >Add User with random name</Button>
-                <h2>Users</h2>
-                <ul>
-                    {users.map((user) => (
-                        <li key={user.id}>{user.name}</li>
-                    ))}
-                </ul>
+                <UserList users={users} />
             </div>
         </div>
     )

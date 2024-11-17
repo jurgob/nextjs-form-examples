@@ -10,6 +10,7 @@ export type User = {
 export type InsertUserParams = Omit<User, "id">;
 
 export async function createClient() {
+    console.log("createClient");
     const redisServer = new RedisMemoryServer();
     const host = await redisServer.getHost();
     const port = await redisServer.getPort();

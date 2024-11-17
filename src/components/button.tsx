@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes } from "react";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     children: string;
-    onClick: () => void;
+    onClick?: () => void;
     className?: string;
 };
 
