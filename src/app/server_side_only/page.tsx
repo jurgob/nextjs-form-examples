@@ -27,7 +27,7 @@ export default  async function ServerSideOnly() {
                 <Heading2>Add User</Heading2>
                 <label>User Name</label>
                 <Input type='text' name="user_name" />
-                <Button type='submit' >Add User with random name</Button>
+                <Button type='submit' >Add User</Button>
             </form>
             <UserList users={users} />
         </div>

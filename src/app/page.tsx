@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { Github, ArrowRight } from 'lucide-react';
+
 const VercelLogo = () => (
   <Image
     className="dark:invert inline-block"
@@ -10,17 +12,33 @@ const VercelLogo = () => (
   />
 )
 
-const ExampleCard = ({title, description, href}: {title: string, description: string, href: string}) => (
-  <a
-  className=""
-  href={href}
-    >
-        <div className="border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex flex-col justify-top hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm p-2 gap-2 w-[200px] h-[100px]" >
-        <b>{title}</b>
-        <p>{description}</p>
-      </div>
-    </a>
+const githubPath = "https://github.com/jurgob/nextjs-form-examples/tree/main/src/app"
+
+const ExampleCard = ({title, description, href, code_href}: {title: string, description: string, href: string, code_href: string}) => (
+  <div className="border border-solid border-black/[.08] " >
+    <a
+    className=""
+    href={href}
+      >
+          <div className="hover:bg-[#f2f2f2] w-[300px] h-[100px] flex flex-col justify-top  text-sm p-2 gap-2" >
+          <b>{title}</b>
+          <p>{description}</p>
+        </div>
+      </a>
+      <div >
+        <a  className="p-2 text-xs hover:bg-[#f2f2f2] inline-block" href={href} ><ArrowRight height={12} width={12} className="inline-block"/>View Example</a> 
+        <span className="inline-block"> | </span>
+        <a  className="p-2 text-xs hover:bg-[#f2f2f2] inline-block" href={code_href} target="_blank"> <Github height={12} width={12} className="inline-block" /> View Code</a> </div>
+    </div>
 )
+
+const EXAMPLES = [
+  {title: "Simple Button Only", description: "This is the simplest way you can manage a 'form', without using a form tag", href: "/simple_noform", code_href: `${githubPath}/simple_noform`},
+  {title: "Simple With Form", description: "This is the simplest way you can manage a 'form', actually using form tag", href: "/simple_withform", code_href: `${githubPath}/simple_withform`},
+  {title: "Server Side Only", description: "Only server side is involved", href: "/server_side_only", code_href: `${githubPath}/server_side_only`},
+  {title: "WIth Zod", description: "use zod for error hanling", href: "/with_zod", code_href: `${githubPath}/with_zod`},
+]
+
 
 export default function Home() {
   return (
@@ -28,10 +46,9 @@ export default function Home() {
       <main className="flex flex-col items-center gap-4 p-4">
         <p>A list of example of how to use forms in <VercelLogo />.</p>
         <div className="flex flex-row gap-4 items-center">
-          <ExampleCard title="Simple Button Only" description="This is the simplest way you can manage a 'form', without using a form tag"  href="/simple_noform" />
-          <ExampleCard title="Simple With Form" description="This is the simplest way you can manage a 'form', actually using form tag"  href="/simple_withform" />
-          <ExampleCard title="Server Side Only" description="Only server side is involved" href="/server_side_only" />
-          <ExampleCard title="WIth Zod" description="use zod for error hanling"  href="/with_zod" />
+            {EXAMPLES.map(({ title, description, href, code_href }) => (
+            <ExampleCard title={title} description={description} href={href} code_href={code_href} />
+            ))}
         </div>
       </main>
     </div>

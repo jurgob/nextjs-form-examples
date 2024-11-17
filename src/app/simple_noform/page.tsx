@@ -16,15 +16,17 @@ export default function Home() {
         });
     }, [])
     
+    const addUser = async () => {
+        const users = await createUser();
+        setUsers(users);
+    }
+
     return (
         <div>
             <h2>Simple Form </h2>
             <div>
                 <Button 
-                    onClick={async () => {
-                        const users = await createUser();
-                        setUsers(users);
-                    }} 
+                    onClick={addUser} 
                     type='submit' 
                 >Add User with random name</Button>
                 <UserList users={users} />
